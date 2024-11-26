@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<body>
+    <div id="logo">
+        <img src="/capa_tematicas.png" alt="logo">
+    </div>
+    <section class="recipes">
+      <h2>Receitas Temáticas</h2>
+      <div class="recipe-grid">
+        <!-- Use receitasFiltradas para mostrar apenas as receitas com temática "Sim" -->
+        <div *ngFor="let receita of receitasFiltradas" class="recipe-card">
+          <a
+            [routerLink]="['/pagina-receita']"
+            [queryParams]="{
+              id: receita.id_receita,
+              nome: receita.nome,
+              ingredientes: receita.ingredientes,
+              etapas: receita.etapas,
+              capa: receita.capa
+            }"
+          >
+            <img [src]="receita.capa" alt="{{ receita.nome }}" />
+            <p>{{ receita.nome }}</p>
+          </a>
+        </div>
+      </div>
+    </section>
+</body>    

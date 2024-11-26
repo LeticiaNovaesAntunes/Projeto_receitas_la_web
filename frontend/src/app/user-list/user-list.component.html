@@ -1,0 +1,24 @@
+<div class="user-list-container">
+    <h2>Usuários Cadastrados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Opção</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id_usuario }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button (click)="deleteUser(user.id_usuario)" class="btn-delete">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

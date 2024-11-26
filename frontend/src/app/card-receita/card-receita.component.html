@@ -1,0 +1,21 @@
+<section class="recipes">
+  <h2>ALGUMAS RECEITAS...</h2>
+  <div class="recipe-grid">
+    <!-- Laço para renderizar os cards -->
+    <div *ngFor="let receita of receitas" class="recipe-card">
+      <!-- A tag <a> envolve todo o card -->
+      <a [routerLink]="['/pagina-receita']" [queryParams]="{id: receita.id_receita, nome: receita.nome, ingredientes: receita.ingredientes, etapas: receita.etapas, capa: receita.capa }">
+        <img [src]="receita.capa" alt="{{ receita.nome }}">
+        <p>{{ receita.nome }}</p>
+        <div class="icons">
+          <span><i class="fas fa-clock"></i> {{ receita.tempoPreparo || '-' }} min</span>
+          <span><i class="fas fa-heart"></i> 2 mil</span>
+          <span><i class="fas fa-comment"></i> Comentários</span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Botão de teste -->

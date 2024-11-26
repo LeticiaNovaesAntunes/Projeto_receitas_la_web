@@ -1,0 +1,30 @@
+<body>
+    <app-navbar></app-navbar>
+    <img [src]="">
+    <div class="container">
+        <!-- Nome da Receita -->
+        <div class="nomeReceita">
+            <h1>{{ nome }}</h1>
+        </div>
+
+        <!-- Ingredientes -->
+        <div class="ingredientes">
+            <h3>Ingredientes</h3>
+            <ul>
+                <li *ngFor="let ingrediente of ingredientes">
+                    {{ ingrediente }}
+                </li>
+            </ul>
+        </div>
+
+        <!-- Modo de Preparo -->
+        <div class="passoAPasso">
+            <h3>Modo de Preparo</h3>
+            <ol class="descricaoReceita">
+                <li *ngFor="let passo of etapas">
+                    <p class="passo">{{ passo }}</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>

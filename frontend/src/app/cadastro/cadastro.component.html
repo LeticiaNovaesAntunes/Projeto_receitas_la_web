@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="painel">
+    <img src="/cadastro.jpeg" alt="Imagem de cadastro" />
+
+    <div class="painel-formulario">
+      <h1>Crie sua conta</h1>
+
+      <!-- Formulário de cadastro -->
+      <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+        <div class="linha">
+          <input class="input" type="text" formControlName="username" placeholder="Nome" required />
+        </div>
+
+        <div class="linha">
+          <input class="input" type="email" formControlName="email" placeholder="exemplo@gmail.com" required />
+          <input class="input" type="password" formControlName="senha" placeholder="******" required />
+        </div>
+
+        <button class="btn-principal" type="submit" [disabled]="loading">Criar conta</button>
+        
+        <!-- Exibindo o erro, se houver -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </form>
+
+      <hr>
+      <span>Já tem uma conta? <a class="link-principal link-bold" routerLink="/login">Clique aqui</a></span>
+    </div>
+  </div>
+</body>
+
+</html>
